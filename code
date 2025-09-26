@@ -1,0 +1,36 @@
+import random
+import time
+
+def balloon_pop():
+    print("🎈 Welcome to Balloon Pop!")
+    print("The balloon grows bigger each turn...")
+    print("Pop it before it gets too big and bursts!\n")
+
+    balloon_size = 0
+    max_size = random.randint(8, 15)  # random burst point
+    score = 0
+
+    while True:
+        action = input("Press Enter to pump the balloon, or type 'pop' to pop it: ").lower()
+
+        if action == "pop":
+            print(f"💥 You popped the balloon at size {balloon_size}!")
+            score += balloon_size
+            print(f"🏆 Your score: {score}")
+            # Start a new balloon
+            balloon_size = 0
+            max_size = random.randint(8, 15)
+            continue
+
+   
+        balloon_size += random.randint(1, 3)
+        print(f"🎈 Balloon size: {balloon_size}")
+
+    
+        if balloon_size >= max_size:
+            print("💀 Oh no! The balloon burst!")
+            print(f"Final Score: {score}")
+            break
+
+
+balloon_pop()
